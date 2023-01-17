@@ -1,0 +1,915 @@
+************************************************************************
+*		  running make file first to build masm_new	           *
+*                                                                      *
+************************************************************************ 
+
+[dhtet@mercury1 doulos_htet_hw4]$ make
+gcc -c -g mic1symasm_new.c
+flex mic1symasm_new.ll
+gcc -c -g lex.yy.c
+gcc -o masm_new mic1symasm_new.o lex.yy.o
+
+************************************************************************
+*    translating microcode.mc to 32 bit opcode called prom_new.dat     *
+*                                                                      *
+************************************************************************ 
+
+[dhtet@mercury1 doulos_htet_hw4]$ ~bill/cs305/mcc microcode.mc > prom_new.dat
+Microcode Compiler - Version 1.0 - Richard Boccuzzi
+
+************************************************************************
+*   building three object files rshift, mult, and div using masm_new   *
+*                                                                      *
+************************************************************************
+
+[dhtet@mercury1 doulos_htet_hw4]$ ./masm_new < a4_rshift_test.asm > a4_rshift_test.obj
+[dhtet@mercury1 doulos_htet_hw4]$ ./masm_new < a4_mult_test.asm > a4_mult_test.obj
+[dhtet@mercury1 doulos_htet_hw4]$ ./masm_new < a4_div_test.asm > a4_div_test.obj
+
+************************************************************************
+*  first testing of a4_rshift_test.obj with prom_new.dat at locations  *
+*                    0 2048 program counter                            *
+************************************************************************ 
+
+[dhtet@mercury1 doulos_htet_hw4]$ ./mic1 prom_new.dat a4_rshift_test.obj 0 2048
+
+Read in 150 micro instructions
+Read in 25 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+
+ProgramCounter : 0000000000000011  base 10:       3
+Accumulator    : 0000110101111011  base 10:    3451
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 41
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000011
+
+
+ProgramCounter : 0000000000000110  base 10:       6
+Accumulator    : 0000010000000000  base 10:    1024
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 88
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000110
+
+
+ProgramCounter : 0000000000001001  base 10:       9
+Accumulator    : 0000000111000000  base 10:     448
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 143
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001001
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 0000000000000001  base 10:       1
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 214
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000001111  base 10:      15
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 263
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001111
+
+
+ProgramCounter : 0000000000010000  base 10:      16
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 276
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010000
+
+
+ProgramCounter : 0000000000010001  base 10:      17
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 289
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010001
+
+
+ProgramCounter : 0000000000010010  base 10:      18
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 302
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010010
+
+
+ProgramCounter : 0000000000010011  base 10:      19
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 315
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010011
+
+
+ProgramCounter : 0000000000010100  base 10:      20
+Accumulator    : 0000000000111011  base 10:      59
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 328
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010100
+
+
+ProgramCounter : 0000000000000011  base 10:       3
+Accumulator    : 0000110101111011  base 10:    3451
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 396
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+************************************************************************
+*  first testing of a4_mult_test.obj with prom_new.dat at locations    *
+*                    0 2048 program counter                            *
+************************************************************************
+
+[dhtet@mercury1 doulos_htet_hw4]$ ./mic1 prom_new.dat a4_mult_test.obj 0 2048
+
+Read in 150 micro instructions
+Read in 36 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+
+ProgramCounter : 0000000000000100  base 10:       4
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 0000100111101110  base 10:    2542
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 60
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000100
+
+
+ProgramCounter : 0000000000001000  base 10:       8
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111110  base 10:    2046
+ARegister      : 1111111010010110  base 10:   65174
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1100101110101110  base 10:   52142
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 230
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001000
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111101  base 10:    2045
+ARegister      : 0000001000001000  base 10:     520
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0111111111111000  base 10:   32760
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 479
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000010000  base 10:      16
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111100  base 10:    2044
+ARegister      : 1111100000000000  base 10:   63488
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1000000000000000  base 10:   32768
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 586
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010000
+
+
+ProgramCounter : 0000000000010100  base 10:      20
+Accumulator    : 1111111111111111  base 10:   65535
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111011  base 10:    2043
+ARegister      : 0000001011001011  base 10:     715
+BRegister      : 0000000000000011  base 10:       3
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 1000000001111010  base 10:   32890
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 781
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010100
+
+
+ProgramCounter : 0000000000011000  base 10:      24
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1005
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011000
+
+
+ProgramCounter : 0000000000011001  base 10:      25
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1018
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011001
+
+
+ProgramCounter : 0000000000011010  base 10:      26
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1031
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011010
+
+
+ProgramCounter : 0000000000011011  base 10:      27
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1044
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011011
+
+
+ProgramCounter : 0000000000011100  base 10:      28
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1057
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011100
+
+
+ProgramCounter : 0000000000011101  base 10:      29
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1070
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011101
+
+
+ProgramCounter : 0000000000011110  base 10:      30
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111111010  base 10:    2042
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111111111  base 10:   65535
+DRegister      : 1111111111001001  base 10:   65481
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1083
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011110
+
+
+ProgramCounter : 0000000000000100  base 10:       4
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011101100100  base 10:    1892
+ARegister      : 0000100111101110  base 10:    2542
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1196
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+************************************************************************
+*  first testing of a4_div_test.obj with prom_new.dat at locations     *
+*                    0 2048 program counter                            *
+************************************************************************
+
+[dhtet@mercury1 doulos_htet_hw4]$ ./mic1 prom_new.dat a4_div_test.obj 0 2048
+
+Read in 150 micro instructions
+Read in 52 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+
+ProgramCounter : 0000000000000110  base 10:       6
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111100  base 10:    2044
+ARegister      : 0001001101001111  base 10:    4943
+BRegister      : 1111111100101111  base 10:   65327
+CRegister      : 0001010000100000  base 10:    5152
+DRegister      : 1110101111100000  base 10:   60384
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 95
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000110
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 1111111111111111  base 10:   65535
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111000  base 10:    2040
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 0000000110110101  base 10:     437
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 1110101111100000  base 10:   60384
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 179
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000010010  base 10:      18
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111110100  base 10:    2036
+ARegister      : 0000000000000111  base 10:       7
+BRegister      : 1111111111110111  base 10:   65527
+CRegister      : 0000000000010000  base 10:      16
+DRegister      : 1111111111110000  base 10:   65520
+ERegister      : 0000001000000000  base 10:     512
+FRegister      : 0000000000000001  base 10:       1
+
+Total cycles   : 2324
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010010
+
+
+ProgramCounter : 0000000000011000  base 10:      24
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111110000  base 10:    2032
+ARegister      : 0000000011111111  base 10:     255
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000100000000  base 10:     256
+DRegister      : 1111111100000000  base 10:   65280
+ERegister      : 1111111110100001  base 10:   65441
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 2799
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011000
+
+
+ProgramCounter : 0000000000011110  base 10:      30
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111101100  base 10:    2028
+ARegister      : 0000000000000000  base 10:       0
+BRegister      : 1111111000000001  base 10:   65025
+CRegister      : 0000000111111111  base 10:     511
+DRegister      : 1111111000000001  base 10:   65025
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 2889
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011110
+
+
+ProgramCounter : 0000000000100100  base 10:      36
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111101000  base 10:    2024
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4903
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000100100
+
+
+ProgramCounter : 0000000000100101  base 10:      37
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111101000  base 10:    2024
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4916
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000100101
+
+
+ProgramCounter : 0000000000100110  base 10:      38
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111101000  base 10:    2024
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4929
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000100110
+
+
+ProgramCounter : 0000000000100111  base 10:      39
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111101000  base 10:    2024
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4942
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000100111
+
+
+ProgramCounter : 0000000000101000  base 10:      40
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111101000  base 10:    2024
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4955
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000101000
+
+
+ProgramCounter : 0000101111100001  base 10:    3041
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4977
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100001
+
+
+ProgramCounter : 0000101111100010  base 10:    3042
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 4990
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100010
+
+
+ProgramCounter : 0000101111100011  base 10:    3043
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5003
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100011
+
+
+ProgramCounter : 0000101111100100  base 10:    3044
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5016
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100100
+
+
+ProgramCounter : 0000101111100101  base 10:    3045
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5029
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100101
+
+
+ProgramCounter : 0000101111100110  base 10:    3046
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5042
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100110
+
+
+ProgramCounter : 0000101111100111  base 10:    3047
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5055
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111100111
+
+
+ProgramCounter : 0000101111101000  base 10:    3048
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5068
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111101000
+
+
+ProgramCounter : 0000101111101001  base 10:    3049
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5081
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111101001
+
+
+ProgramCounter : 0000101111101010  base 10:    3050
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5094
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000101111101010
+
+
+ProgramCounter : 0000101111101011  base 10:    3051
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111111111  base 10:   65535
+TempInstr      : 1111111100000000  base 10:   65280
+StackPointer   : 0000011111100111  base 10:    2023
+ARegister      : 0000000000001110  base 10:      14
+BRegister      : 1111111111111101  base 10:   65533
+CRegister      : 0000000000010001  base 10:      17
+DRegister      : 1111111111101111  base 10:   65519
+ERegister      : 0000000111100001  base 10:     481
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 5107
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye

@@ -1,0 +1,87 @@
+5 outputs of assignment choosing 
+
+please enter a floating point number and new-line: 237.75
+the floating value for 237.75 is broken out as: 
+  mantissa: 0x6dc000      or:             110 1101 1100 0000 0000 0000
+  exponent: 0x86          or:   1000 0110
+      sign: 0x0           or: 0
+in base 10: 237.75        or: 0 1000 0110 110 1101 1100 0000 0000 0000
+
+please enter a floating point number and new-line: -.0000005126
+the floating value for -5.126e-007 is broken out as: 
+  mantissa: 0x9999b       or:             000 1001 1001 1001 1001 1011
+  exponent: 0x6a          or:   0110 1010
+      sign: 0x1           or: 1
+in base 10: -5.126e-007   or: 1 0110 1010 000 1001 1001 1001 1001 1011
+
+please enter a floating point number and new-line: -92457321.670245
+the floating value for -9.24573e+007 is broken out as: 
+  mantissa: 0x30592d      or:             011 0000 0101 1001 0010 1101
+  exponent: 0x99          or:   1001 1001
+      sign: 0x1           or: 1
+in base 10: -9.24573e+007 or: 1 1001 1001 011 0000 0101 1001 0010 1101
+
+please enter a floating point number and new-line: 6.023e+23
+the floating value for 6.023e+023 is broken out as: 
+  mantissa: 0x7f157f      or:             111 1111 0001 0101 0111 1111
+  exponent: 0xcd          or:   1100 1101
+      sign: 0x0           or: 0
+in base 10: 6.023e+023    or: 0 1100 1101 111 1111 0001 0101 0111 1111
+
+please enter a floating point number and new-line: 1.67339E-40
+the floating value for 1.67339e-040 is broken out as: 
+  mantissa: 0x1d279       or:             000 0001 1101 0010 0111 1001
+  exponent: 0x0          or:   0000 0000
+      sign: 0x0           or: 0
+in base 10: 1.67339e-040  or: 0 0000 0000 000 0001 1101 0010 0111 1001
+
+
+5 outputs of my choosing
+
+please enter a floating point number and new-line: 652.22
+the floating value for 652.22 is broken out as: 
+  mantissa: 0x230e14      or:             010 0011 0000 1110 0001 0100
+  exponent: 0x88          or:   1000 1000
+      sign: 0x0           or: 0
+in base 10: 652.22        or: 0 1000 1000 010 0011 0000 1110 0001 0100
+
+please enter a floating point number and new-line: -6674213.11
+the floating value for -6.67421e+006 is broken out as: 
+  mantissa: 0x4bae4a      or:             100 1011 1010 1110 0100 1010
+  exponent: 0x95          or:   1001 0101
+      sign: 0x1           or: 1
+in base 10: -6.67421e+006 or: 1 1001 0101 100 1011 1010 1110 0100 1010
+
+please enter a floating point number and new-line: -985754.245466
+the floating value for -985754 is broken out as: 
+  mantissa: 0x70a9a4      or:             111 0000 1010 1001 1010 0100
+  exponent: 0x92          or:   1001 0010
+      sign: 0x1           or: 1
+in base 10: -985754       or: 1 1001 0010 111 0000 1010 1001 1010 0100
+
+please enter a floating point number and new-line: 7.22e+22
+the floating value for 7.22e+022 is broken out as: 
+  mantissa: 0x749f84      or:             111 0100 1001 1111 1000 0100
+  exponent: 0xca          or:   1100 1010
+      sign: 0x0           or: 0
+in base 10: 7.22e+022     or: 0 1100 1010 111 0100 1001 1111 1000 0100
+
+please enter a floating point number and new-line: 2.5e+6
+the floating value for 2.5e+006 is broken out as: 
+  mantissa: 0x189680      or:             001 1000 1001 0110 1000 0000
+  exponent: 0x94          or:   1001 0100
+      sign: 0x0           or: 0
+in base 10: 2.5e+006      or: 0 1001 0100 001 1000 1001 0110 1000 0000 
+
+
+
+
+
+
+
+
+
+
+
+
+

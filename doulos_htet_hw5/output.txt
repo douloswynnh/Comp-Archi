@@ -1,0 +1,147 @@
+235 + 0:
+Read in 152 micro instructions
+Read in 194 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+235
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+0
+THE SUM OF THESE INTEGERS IS:
+235
+
+ProgramCounter : 0000000001100100  base 10:     100
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000010  base 10:       2
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 2256719
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 
+
+
+16341 + 957:
+Read in 152 micro instructions
+Read in 194 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+16341
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+957
+THE SUM OF THESE INTEGERS IS:
+17298
+
+ProgramCounter : 0000000001100100  base 10:     100
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1634530
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 
+
+
+23786 + 12400:
+Read in 152 micro instructions
+Read in 194 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+23786
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+12400
+OVERFLOW, NO SUM POSSIBLE
+
+ProgramCounter : 0000000001100100  base 10:     100
+Accumulator    : 1111111111111111  base 10:   65535
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0011000001110000  base 10:   12400
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1659097
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 
+
+
+12 + 23:
+Read in 152 micro instructions
+Read in 194 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+12
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+23
+THE SUM OF THESE INTEGERS IS:
+35
+
+ProgramCounter : 0000000001100100  base 10:     100
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000011  base 10:       3
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 417431
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 
+
+
+1 + 1343:
+Read in 152 micro instructions
+Read in 194 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+1
+PLEASE ENTER AN INTEGER BETWEEN 1 AND  32767
+1343
+THE SUM OF THESE INTEGERS IS:
+1344
+
+ProgramCounter : 0000000001100100  base 10:     100
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1000000000000000  base 10:   32768
+StackPointer   : 0000011111111111  base 10:    2047
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111110110  base 10:   65526
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 600997
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 

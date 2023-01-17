@@ -1,0 +1,5 @@
+Commands to run program: 
+
+Create rfib.obj: 			./masm < rfib.asm > rfib.obj
+
+Run the emulator:			./mic1 prom.dat rfib.obj 0 2048

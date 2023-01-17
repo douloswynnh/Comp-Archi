@@ -1,0 +1,38 @@
+[dhtet@mercury1 doulos_htet_hw7]$ make
+gcc -std=c99 -o -Werror -Wextra -Wall a7.c -o a7
+[dhtet@mercury1 doulos_htet_hw7]$ ./a7
+
+This is the Parent process report:
+
+PARENT PROG:  Process ID is:            3588328
+PARENT PROC:  Process parent ID is:     3585502
+PARENT PROC:  Real UID is:              1297600699
+PARENT PROC:  Real GID is:              2023
+PARENT PROC:  Effective UID is:         1297600699
+PARENT PROC:  Effective GID is:         2023
+PARENT PROC:  Process priority is:      0
+
+PARENT PROC: will now create child, write pipe,
+   and do a normal termination
+
+PARENT PROG: Created child with 3588329 PID
+
+This is the Child process report:
+
+CHILD PROG:  Process ID is:             3588329
+CHILD PROC:  Process parent ID is:      1
+CHILD PROC:  Real UID is:               1297600699
+CHILD PROC:  Real GID is:               2023
+CHILD PROC:  Effective UID is:          1297600699
+CHILD PROC:  Effective GID is:          2023
+CHILD PROC:  Process priority is:       0
+
+CHILD PROG: about to read pipe and report parent message:
+
+CHILD PROC: parent's msg is:
+This is the pipe message from the parent with 3588328 PID
+
+CHILD PROC: Process parent ID now is: 1
+CHILD PROC: ### Goodbye ###
+[dhtet@mercury1 doulos_htet_hw7]$ make clean
+rm a7
